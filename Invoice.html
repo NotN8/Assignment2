@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Customer Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header><a href="index.html"><img height="60px" src="../Media/logo.png" alt="Image not found"></a>
+</header>
+<body>
+    
+    <div class="invoice">
+        <table style="font-family:Arial, Helvetica, sans-serif;" width="80%" align="center" cellspacing="0" cellpadding="18" border="0px">
+            <tr colspan="5"><center><h2>INVOICE</h2></center></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2"><b><big>Address</big></b></td>
+                <td colspan="3"></td>
+                <td><b><big>Personal Info</big></b></td>
+            </tr>
+            <tr><td colspan="2" id="addinfo">Address Info...</td><td colspan="3"></td><td id="cinfo">Personal Info..</td></tr>
+            <tr><td colspan="6"><hr color = “black” size=”5” width=”50” align=”center”/></td></tr>
+            <tr align="center">
+                <td>Qunatity</td>
+                <td colspan="2">Item Name</td>
+                <td cols>Price</td>
+                <td>Price Tax/Shipping(40%)</td>
+                <td>Sub Total</td>
+            </tr>
+            <tr></tr>
+            
+        </table>
+        <h2 id="gtot">Grand Total: </h2>
+        <br><br><br><br><br><br>  <br><br><br><br><br><br>
+        <div class="logout"> <button onclick="document.location='Cart.html'"><b>Go Back to Cart</b></button></div>
+        <div class="logout"> <button onclick="document.location='Product.html'"><b>Go to Product Inventory</b></button></div>
+        <button onclick="updateinv(); removeallcart(0);thanks(); document.location='Invoice.html'" type="button" class="confirm">Final Confirmation</button></br>
+        <button onclick="removeallcart(0);document.location='Product.html'" type="button" class="confirm">Cancel/Go Back</button>
+        
+    </div>
+    
+
+
+
+    <footer><h3>BRINGING YOUR DREAM ACROSS BORDERS, ONE HOP AT A TIME</h3>
+        <a href="mailto:KaeruExportsService@gmail.com" target="_blank"><img width="30px" src="../Media/gmail.png"></a>&emsp13;&emsp13;
+        <a href="https://www.instagram.com/notnzte/?hl=en" target="_blank"><img width="30px" src="../Media/instagram.png"></a>
+    </footer>
+    <script type="text/javascript">
+        let customerdata = JSON.parse(localStorage.getItem('cuspersinfo'))||[];
+        let cusaddrdata = JSON.parse(localStorage.getItem('cusaddrinfo'))||[];
+        let cartinv = JSON.parse(localStorage.getItem('cartinfo'));
+        document.getElementById("cinfo").innerHTML=customerdata.join('<br>');
+        document.getElementById("addinfo").innerHTML=cusaddrdata.join('<br>');
+
+        
+        let gtot= 0;
+        for(let i=0;i<cartinv.length;i++)
+    {
+        let currcart = cartinv[i];
+        let price = parseFloat(currcart.price);
+        let tax = price * 0.4;
+        let total = price + tax;
+        gtot += total;
+        let newRow = 
+        `
+        <tr>
+            <td>${currcart.quantity}</td>
+            <td colspan="2">${currcart.name}</td>
+            <td>$${price.toFixed(2)}</td>
+            <td>$${(tax.toFixed(2))}</td>
+            <td>$${(total.toFixed(2))}</td>
+        </tr>
+    `;
+    document.querySelector("table").insertAdjacentHTML('beforeend', newRow);
+    document.getElementById("gtot").innerHTML=`Grand Total:&emsp13;${gtot.toFixed(2)}`;
+    
+    }
+       function thanks()
+       {
+        window.alert("Thank you for your purchase.")
+       };
+        
+
+        function removeallcart(productindex)
+    {
+        let cart = JSON.parse(localStorage.getItem('cartinfo'))||[];
+        cart.splice(productindex,9);
+        localStorage.setItem('cartinfo', JSON.stringify(cart));
+        location.reload();
+    };
+
+        function updateinv()
+        {
+            let cartname = JSON.parse(localStorage.getItem('cartinfo'));
+            let modelname = JSON.parse(localStorage.getItem('carname'));
+            let newquan = JSON.parse(localStorage.getItem('carquan'));
+            for (let i = 0; i < modelname.length; i++) 
+            {
+                let carName = modelname[i];
+                for (let j = 0; j < cartname.length; j++) 
+                {
+                    let cartItemName = cartname[j].name;
+                    
+                    if (carName==cartItemName)
+                    {
+                        newquan[i] = 0;
+                    }   
+                }
+            }
+            localStorage.setItem('carquan', JSON.stringify(newquan));
+        }   
+    </script>
+</body>
+</html>

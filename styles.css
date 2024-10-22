@@ -1,0 +1,302 @@
+body
+    {
+    display:flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8dcb5;
+    }
+header
+    {
+    display:flex;
+    justify-content: flex-start;
+    padding: 10px;
+    position:static; 
+    top: 0; 
+    left: 0;
+    background-color: black;
+    }
+
+.headertitle
+    {
+   flex-grow: 0.88;
+   text-align: center; 
+   color:#a5af92;
+    }
+
+.headerright
+    {
+   flex-grow: 0;
+   margin-left: auto;
+    }
+
+
+footer 
+    {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    text-align: center;
+    color: #a5af92;
+    padding: 8px 0;
+    position: static;
+    bottom: 10px;
+    width: 100%;
+    background-color: black;
+    }
+
+.login, .register 
+    {
+    background-size: cover;
+    background-position: center;
+    width: 320px;
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 0.8;
+    }
+
+.login legend 
+    {
+    font-size: 1.5em;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    }
+
+.login input[type="text"], 
+.login input[type="password"],
+.login input[type="email"] 
+    {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    }
+
+.login button 
+    {
+    width: 100%;
+    padding: 10px;
+    background-color:#9f6d4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+.login button:hover 
+    {
+    background-color: #a5af92;
+    }
+
+.register input[type="text"], 
+.register input[type="password"],
+.register input[type="email"] 
+    {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    }
+
+.register button 
+    {
+    width: 100%;
+    padding: 10px;
+    background-color:#1c4179;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+.register button:hover 
+    {
+    background-color:#a5af92;
+    }
+
+.register legend 
+    {
+    font-size: 1.5em;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    }
+
+.bubble
+    {
+    background-color: #a5af92;
+    border: 2px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 500px;
+    display: inline-table;
+    margin: 50px;
+    place-items: center;
+    }
+
+.bubble legend
+    {
+    font-size: 1.5em;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    }
+.bubble p
+    {
+    font-size: 18;
+    }
+.bubblewrap
+    {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+
+.productwrap
+    {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-content: center; 
+        align-items: center;
+        background-color: #a5af92;
+        border: 2px;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        width: 1200px;
+        margin: 40px auto;
+        place-items: center;
+    }
+
+.productwrap legend
+    {
+        font-size: 1.5em;
+        color: black;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin-bottom: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+.product
+    {
+        background-color: black;
+        border: 2px;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: left;
+        width: 250px;
+        display: inline-block;
+        margin: 50px;
+        align-items: center;
+        width: 59%;
+        height: 60%;
+    }
+
+.product h4
+    {
+        font-size: 18;
+        color:white;
+        text-align: center;
+    }
+
+.logout button
+    {
+        font-size: 16px;
+        background-color: #a5af92;
+        color: black;
+        border: hidden;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 20px;
+        
+    }
+
+.product button
+    {
+        font-size: 16px;
+        background-color: #f8dcb5;
+        color: black;
+        border: 2px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 20px;
+        
+    }
+.product button:hover
+    {
+        background-color: red;
+    }
+.product table
+    {
+        color:black;
+        float:right;
+        background-color: #f8dcb5;
+        border-radius: 5px
+    }
+
+    
+.confirm 
+    {
+        width: 100%;
+        padding: 10px;
+        margin:5px;
+        background-color:#9f6d4a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+.bubble input[type="text"], 
+.bubble input[type="number"],
+.bubble input[type="email"] {
+        align-items: baseline;
+        width: 60%;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+.bubble button 
+    {
+        padding: 10px;
+        background-color:white;
+        color: red;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+.bubble button:hover 
+    {
+        background-color: black;
+    }
+
+    .invoice {
+        width: 45%; 
+        min-height: 100vh; 
+        background-color: white; 
+        color: black; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: flex-start; 
+        margin: 50px auto; 
+        padding: 20px; 
+    }
+    .invoice button:hover
+    {
+        background-color: red; 
+    }

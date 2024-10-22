@@ -1,0 +1,99 @@
+<!DOCTYPE html5>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header><a href="Product.html"><img height="60px" src="../Media/logo.png" alt="Image not found"></a>
+    <div style="flex-grow: 2;" class="headertitle"><h2>CHECKOUT CART</h2></div>
+    <div class="logout"> <button onclick="document.location='index.html'"><b>Log Out</b></button></div>
+</header>
+<body>
+    <div class="bubblewrap">
+    <div class="bubble">
+        <table>
+            <tr colspan="2"><big><big><b>Your Cart</b></big></big></tr>
+            <tr>
+                <td><p id="printc1"></p></td>
+            </tr>
+    </table><br><br>
+    <div class="logout"> <button onclick="document.location='Product.html'"><b>Go to Product Inventory</b></button></div>
+    </div>
+    <form action="" method="">
+    <div class="bubble">
+        <fieldset>
+            <legend>Personal Info</legend>
+            <input type="text" id="name" placeholder="Full Name" required></br></br>
+            <input type="number" id="cell" placeholder="Telephone" required></br></br>
+            <input type="email" id="email" placeholder="Email" required></br></br>
+        </fieldset>
+        <fieldset>
+            <legend>Address Info</legend>
+            <input type="text" id="stname" placeholder="Street Name" required></br></br>
+            <input type="text" id="state" placeholder="State" required></br></br>
+            <input type="text" id="city" placeholder="City" required></br></br>
+            <input type="number" id="zip" placeholder="ZIP/Postal Code" required></br></br>
+            <input type="text" id="port" placeholder="Desired Port" required></br></br>
+            <button onclick="submitcusdata();document.location='Invoice.html'" type="button" class="confirm">Confirm Purchase/Generate Invoice</button></br>
+            <button onclick="removeallcart(0);document.location='Product.html'" type="button" class="confirm">Go Back/Cancel</button>
+        </fieldset>
+    </div>
+    
+    </form>
+    </div>
+    
+    <footer><h3>BRINGING YOUR DREAM ACROSS BORDERS, ONE HOP AT A TIME</h3>
+        <a href="mailto:KaeruExportsService@gmail.com" target="_blank"><img width="30px" src="../Media/gmail.png"></a>&emsp13;&emsp13;
+        <a href="https://www.instagram.com/notnzte/?hl=en" target="_blank"><img width="30px" src="../Media/instagram.png"></a>
+    </footer>
+    <script type="text/javascript">
+        let cart = localStorage.getItem('cartinfo');
+        cart = JSON.parse(cart);
+        cartdisplay = document.getElementById('printc1');
+        if (cart.length>0)
+    {
+        cart.forEach(item => {
+            
+            cartdisplay.innerHTML += `<p>${item.quantity} x ${item.name} - ${item.price} &emsp13;&emsp13;
+                <button onclick="removeitemcart(cart)" style="cursor: pointer; border:none; border-radius:5px;"><img height="20px" src="../Media/cross.png"></button></p>`;
+        });
+    } 
+    else 
+    {
+        
+        cartdisplay.innerHTML = '<p>Your cart is empty.</p>';
+    }
+    
+    function removeitemcart(productindex)
+    {
+        let cart = JSON.parse(localStorage.getItem('cartinfo'))||[];
+        cart.splice(productindex,1);
+        localStorage.setItem('cartinfo', JSON.stringify(cart));
+        location.reload();
+    };
+
+    function removeallcart(productindex)
+    {
+        let cart = JSON.parse(localStorage.getItem('cartinfo'))||[];
+        cart.splice(productindex,9);
+        localStorage.setItem('cartinfo', JSON.stringify(cart));
+        location.reload();
+    };
+
+    
+    function submitcusdata()
+    {
+    let a = [document.getElementById("name").value,document.getElementById("cell").value,document.getElementById("email").value];
+    let b = [document.getElementById("stname").value,document.getElementById("state").value,document.getElementById("city").value,
+            document.getElementById("zip").value,document.getElementById("port").value]
+
+    localStorage.setItem('cuspersinfo',JSON.stringify(a));
+    localStorage.setItem('cusaddrinfo',JSON.stringify(b));
+
+    };
+
+   
+
+
+    </script>
+</body>
+</html>

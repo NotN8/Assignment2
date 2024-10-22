@@ -1,0 +1,78 @@
+<!DOCTYPE html5>
+<head>
+    <title>N8's Exports Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header><a href="index.html"><img height="60px" src="../Media/logo.png" alt="Image not found"></a>
+</header>
+<body style="background-color: #f8dcb5;">
+    <div class="bubblewrap">
+        <div class="bubble">
+            <legend>About Us</legend>
+            <p>Kaeru Imports is a Japan based, used car dealership that wishes to assist anyone looking 
+                for their classic JDM gem. We offer an exclusive variety of the most popular oldies that 
+                may entice all generations. We're established just outside Fukuoka, Japan and are prepared to hop to you, 
+                wherever you are. Nathan Bowen, 2306494, nathanbowen57@gmail.com, Individual	Assignment	#2, Friday @ 5pm</p>
+                <img border="2px" height="400px" src=../Media/location.png></img>
+        </div>
+    <form>
+        <div class="login" style="background-image: url('../Media/fuji.jpg');">
+            <legend>Log In</legend>
+            <input type="text" id="user" placeholder="Username" required></br></br>
+            <input type="password" id="pass" placeholder="Password" required></br>
+            <button type ="submit" value="submit" id="submitlog">Complete</button>
+        </div>
+    </form>
+    <div class="bubble">
+        <legend>Why Choose Us?</legend>
+        <p>
+            Because of our established networks and relationships within the Japanese automobile industry, 
+            we are able to source and locate a wide range of vehicles according to the needs of our customers. 
+            Customers who are having trouble finding certain models and manufactures have no need to worry, 
+            we'll hop from prefecture to prefecture to get what you need.
+        </p>
+    </div>
+    </div>
+    <big><p style="color: red;" align="center" id="credmess"></p></big>
+    <big><p style="color: red;" align="center" id="credmess1"></p></big>
+    <footer><h3>BRINGING YOUR DREAM ACROSS BORDERS, ONE HOP AT A TIME</h3>
+        <a href="mailto:KaeruExportsService@gmail.com" target="_blank"><img width="30px" src="../Media/gmail.png"></a>&emsp13;&emsp13;
+        <a href="https://www.instagram.com/notnzte/?hl=en" target="_blank"><img width="30px" src="../Media/instagram.png"></a>
+    </footer>
+
+    <script type="text/javascript">
+        let testuser = "Webprogramming";
+        let testpass = "password";
+        localStorage.setItem('sampleuser',testuser);
+        localStorage.setItem('samplepass',testpass);
+        let x = document.getElementById("submitlog");
+        let d = 0;
+        x.addEventListener("click", function verify()
+    {
+        event.preventDefault();
+        
+        var a = document.getElementById("user").value;
+        var b = document.getElementById("pass").value;
+        var c = 8;
+        if(a == localStorage.getItem('sampleuser') && b == localStorage.getItem('samplepass'))
+    {
+        window.location.href = "Product.html";
+    }
+    else
+    {
+        document.getElementById("credmess").textContent="Credentials are incorrect.";
+        d++;
+            if (b.length < c)
+            {
+                document.getElementById("credmess1").textContent="The password must atleast be 8 characters.";
+            }
+            if (d==3)
+            {
+                window.location.href = "Error.html";
+            }
+    }  
+    });
+
+    </script>
+</body>
+</html>
