@@ -3,7 +3,7 @@
     <title>Cart</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<header><a href="Product.html"><img height="60px" src="../Media/logo.png" alt="Image not found"></a>
+<header><a href="Product.html"><img height="60px" src="logo.png" alt="Image not found"></a>
     <div style="flex-grow: 2;" class="headertitle"><h2>CHECKOUT CART</h2></div>
     <div class="logout"> <button onclick="document.location='index.html'"><b>Log Out</b></button></div>
 </header>
@@ -42,8 +42,8 @@
     </div>
     
     <footer><h3>BRINGING YOUR DREAM ACROSS BORDERS, ONE HOP AT A TIME</h3>
-        <a href="mailto:KaeruExportsService@gmail.com" target="_blank"><img width="30px" src="../Media/gmail.png"></a>&emsp13;&emsp13;
-        <a href="https://www.instagram.com/notnzte/?hl=en" target="_blank"><img width="30px" src="../Media/instagram.png"></a>
+        <a href="mailto:KaeruExportsService@gmail.com" target="_blank"><img width="30px" src="gmail.png"></a>&emsp13;&emsp13;
+        <a href="https://www.instagram.com/notnzte/?hl=en" target="_blank"><img width="30px" src="instagram.png"></a>
     </footer>
     <script type="text/javascript">
         let cart = localStorage.getItem('cartinfo');
@@ -54,7 +54,7 @@
         cart.forEach(item => {
             
             cartdisplay.innerHTML += `<p>${item.quantity} x ${item.name} - ${item.price} &emsp13;&emsp13;
-                <button onclick="removeitemcart(cart)" style="cursor: pointer; border:none; border-radius:5px;"><img height="20px" src="../Media/cross.png"></button></p>`;
+                <button onclick="removeitemcart(cart)" style="cursor: pointer; border:none; border-radius:5px;"><img height="20px" src="cross.png"></button></p>`;
         });
     } 
     else 
